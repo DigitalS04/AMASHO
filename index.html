@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amasho | Online Shopping Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header / Navbar -->
+    <header class="bg-blue-600 py-3 px-4 md:px-20 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-8">
+            <!-- Brand Name -->
+            <h1 class="text-2xl font-bold text-white italic tracking-wider">Amasho</h1>
+            
+            <!-- Search Bar -->
+            <div class="hidden md:flex items-center bg-white rounded-sm w-[400px]">
+                <input type="text" placeholder="Search for products, brands and more" class="w-full px-4 py-2 outline-none text-sm">
+                <i class="fa-solid fa-magnifying-glass text-blue-600 px-3 cursor-pointer"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-white font-medium">
+            <button class="bg-white text-blue-600 px-8 py-1 rounded-sm font-semibold hover:bg-gray-100">Login</button>
+            <span class="cursor-pointer hidden md:block">Become a Seller</span>
+            <div class="flex items-center gap-1 cursor-pointer">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Cart</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Section -->
+    <div class="bg-white shadow-sm py-3 px-4 md:px-20 flex justify-between items-center overflow-x-auto text-sm font-semibold text-gray-700">
+        <div class="text-center min-w-[80px] cursor-pointer hover:text-blue-600">Mobiles</div>
+        <div class="text-center min-w-[80px] cursor-pointer hover:text-blue-600">Electronics</div>
+        <div class="text-center min-w-[80px] cursor-pointer hover:text-blue-600">Fashion</div>
+        <div class="text-center min-w-[80px] cursor-pointer hover:text-blue-600">Home & Kitchen</div>
+        <div class="text-center min-w-[80px] cursor-pointer hover:text-blue-600">Appliances</div>
+        <div class="text-center min-w-[80px] cursor-pointer hover:text-blue-600">Toys & More</div>
+    </div>
+
+    <!-- Hero Banner (Dummy) -->
+    <main class="p-4 md:px-20">
+        <div class="w-full h-40 md:h-64 bg-blue-200 rounded-sm mb-6 flex items-center justify-center overflow-hidden">
+            <img src="https://via.placeholder.com/1200x400?text=Big+Sale+Offer+-+Amasho+Deals" alt="Banner" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Product Grid Section -->
+        <div class="bg-white p-4 shadow-sm">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h2 class="text-xl font-bold">Best of Electronics</h2>
+                <button class="bg-blue-600 text-white px-4 py-2 text-sm rounded-sm">VIEW ALL</button>
+            </div>
+
+            <!-- Products Container (Using JS to populate) -->
+            <div id="product-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Products will appear here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Sample Product Data
+        const products = [
+            { id: 1, name: "Smart Watch Clone", price: "₹1,499", image: "https://via.placeholder.com/150" },
+            { id: 2, name: "Wireless Headphones", price: "₹2,999", image: "https://via.placeholder.com/150" },
+            { id: 3, name: "5G Smartphone", price: "₹14,999", image: "https://via.placeholder.com/150" },
+            { id: 4, name: "Bluetooth Speaker", price: "₹999", image: "https://via.placeholder.com/150" },
+            { id: 5, name: "Gaming Mouse", price: "₹799", image: "https://via.placeholder.com/150" }
+        ];
+
+        const productContainer = document.getElementById('product-list');
+
+        // Function to display products
+        products.forEach(product => {
+            productContainer.innerHTML += `
+                <div class="border border-gray-100 p-3 hover:shadow-lg transition-shadow cursor-pointer text-center group">
+                    <div class="h-40 flex items-center justify-center overflow-hidden mb-2">
+                        <img src="${product.image}" alt="${product.name}" class="group-hover:scale-105 transition-transform">
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-800 truncate">${product.name}</h3>
+                    <p class="text-green-600 text-sm font-bold mt-1">${product.price}</p>
+                    <p class="text-gray-500 text-xs mt-1">Free Delivery</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
+
